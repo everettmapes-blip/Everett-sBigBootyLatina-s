@@ -21,7 +21,8 @@ public class CameraController : MonoBehaviour
     [Space]
     [Tooltip("The higher it is, the faster the camera moves. It is recommended to increase this value for games that uses joystick.")]
     public float sensitivity = 5f;
-
+    public int xValue;
+    public int zValue;
     [Tooltip("Camera Y rotation limits. The X axis is the maximum it can go up and the Y axis is the maximum it can go down.")]
     public Vector2 cameraLimit = new Vector2(-45, 40);
 
@@ -51,7 +52,7 @@ public class CameraController : MonoBehaviour
     {
 
         // Follow player - camera offset
-        transform.position = player.position + new Vector3(0, offsetDistanceY, 0);
+        transform.position = player.position + new Vector3(xValue, offsetDistanceY, zValue);
 
         // Set camera zoom when mouse wheel is scrolled
         if( canZoom && Input.GetAxis("Mouse ScrollWheel") != 0 )
