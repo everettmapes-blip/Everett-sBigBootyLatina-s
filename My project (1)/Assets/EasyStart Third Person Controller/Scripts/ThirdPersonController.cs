@@ -34,6 +34,7 @@ public class ThirdPersonController : MonoBehaviour
     bool isJumping = false;
     bool isSprinting = false;
     bool isCrouching = false;
+    bool isIdle = true;
 
     // Inputs
     float inputHorizontal;
@@ -77,10 +78,11 @@ public class ThirdPersonController : MonoBehaviour
         // If dont have animator component, this block wont run
         if ( cc.isGrounded && animator != null )
         {
+            animator.SetBool("isIdle", false);
 
             // Crouch
             // Note: The crouch animation does not shrink the character's collider
-            animator.SetBool("crouch", isCrouching);
+            animator.SetBool("isCrouching", true);
             
             // Run
             float minimumSpeed = 0.9f;
@@ -88,7 +90,7 @@ public class ThirdPersonController : MonoBehaviour
 
             // Sprint
             isSprinting = cc.velocity.magnitude > minimumSpeed && inputSprint;
-            animator.SetBool("sprint", isSprinting );
+            animator.SetBool("isSprinting", true);
 
         }
 
@@ -99,7 +101,8 @@ public class ThirdPersonController : MonoBehaviour
         // Handle can jump or not
         if ( inputJump && cc.isGrounded )
         {
-            isJumping = true;
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isJumping", true);
             // Disable crounching when jumping
             //isCrouching = false; 
         }
@@ -128,7 +131,7 @@ public class ThirdPersonController : MonoBehaviour
         // Jump handler
         if ( isJumping )
         {
-
+            animator.SetBool("isIdle", false);
             // Apply inertia and smoothness when climbing the jump
             // It is not necessary when descending, as gravity itself will gradually pulls
             directionY = Mathf.SmoothStep(jumpForce, jumpForce * 0.30f, jumpElapsedTime / jumpTime) * Time.deltaTime;
