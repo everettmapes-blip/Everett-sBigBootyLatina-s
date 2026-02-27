@@ -543,6 +543,10 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11414154, guid: c391f12a928274acab8576bb6030641d, type: 3}
+      propertyPath: currentGun
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 11478776, guid: c391f12a928274acab8576bb6030641d, type: 3}
       propertyPath: showFps
       value: 1
