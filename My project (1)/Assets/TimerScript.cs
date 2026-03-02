@@ -8,7 +8,8 @@ public class CountdownTimer : MonoBehaviour
     // Use this if you have a TextMeshPro UI element
     [SerializeField] private GameObject Character;
     public TextMeshProUGUI countdownText; 
-    public TextMeshProUGUI winScreen; 
+    public GameObject winScreen; 
+    
     // Or use this if you have a Legacy Text UI element
     // public Text countdownText; 
 
@@ -16,13 +17,14 @@ public class CountdownTimer : MonoBehaviour
 
     void Update()
     {
+        
         if (timerActive)
         {
             if (countdownTime > 0)
             {
                 countdownTime -= Time.deltaTime;
                 UpdateTimerDisplay();
-                
+                winScreen.SetActive(false);
             }
             else
             {
@@ -32,7 +34,7 @@ public class CountdownTimer : MonoBehaviour
                 // Add actions to perform when the timer finishes (e.g., game over, load scene)
                 Debug.Log("Countdown Finished!");
                 Character.SetActive(false);
-
+                winScreen.SetActive(true);
             }
         }
     }
