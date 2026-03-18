@@ -4964,7 +4964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   collect: {fileID: 6396537520000484186}
-  screenFlashEffect: {fileID: 0}
+  screenFlashEffect: {fileID: 3087159710187280746, guid: 545d181899c85b045958f9ae98d23f12, type: 3}
   soundEffectClip: {fileID: 8300000, guid: 5584b7fab1956b14f93f1de657105f88, type: 3}
 --- !u!114 &4116601712600517618
 MonoBehaviour:

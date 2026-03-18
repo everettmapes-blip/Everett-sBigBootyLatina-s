@@ -7,6 +7,11 @@ public class Flash : MonoBehaviour
     public GameObject collect;
     public ScreenFlash screenFlashEffect;
     public AudioClip soundEffectClip;
+    private GameObject sceneObject;
+    public void Start()
+    {
+        sceneObject = GameObject.Find("image");
+    }
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object colliding with the collectible has the "Player" tag
