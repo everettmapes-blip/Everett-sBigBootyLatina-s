@@ -6,11 +6,13 @@ public class Flash : MonoBehaviour
     // public AudioClip collectSound; 
     public GameObject collect;
     public ScreenFlash screenFlashEffect;
+    public AudioClip soundEffectClip;
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object colliding with the collectible has the "Player" tag
         if (other.CompareTag("Player"))
         {
+            AudioSource.PlayClipAtPoint(soundEffectClip, transform.position);
             // Call a method on the Player script to add to the score or inventory
         if (screenFlashEffect != null)
         {
