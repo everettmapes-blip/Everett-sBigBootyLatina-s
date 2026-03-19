@@ -19,8 +19,8 @@ public class ScreenFlash : MonoBehaviour
     private IEnumerator DoFlash()
     {
         // Set to opaque color immediately
-        flashImage.color = flashColor; 
-
+        flashImage.color = flashColor;
+        Debug.Log("run");
         // Fade out over the duration
         float timer = 0f;
         while (timer < flashDuration)

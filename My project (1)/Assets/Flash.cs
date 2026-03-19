@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Flash : MonoBehaviour
@@ -8,15 +9,12 @@ public class Flash : MonoBehaviour
     public ScreenFlash screenFlashEffect;
     public AudioClip soundEffectClip;
     private GameObject sceneObject;
-    public void Start()
-    {
-        sceneObject = GameObject.Find("image");
-    }
+   
+    
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object colliding with the collectible has the "Player" tag
-        if (other.CompareTag("Player"))
-        {
+        
             AudioSource.PlayClipAtPoint(soundEffectClip, transform.position);
             // Call a method on the Player script to add to the score or inventory
         if (screenFlashEffect != null)
@@ -24,13 +22,13 @@ public class Flash : MonoBehaviour
             
             screenFlashEffect.FlashScreen();
         }
-            
-            // Optional: Play a sound effect if you have one
-            // AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
-            // Destroy the collectible game object after it's collected
-            Destroy(collect);
+        // Optional: Play a sound effect if you have one
+        // AudioSource.PlayClipAtPoint(collectSound, transform.position);
 
-        }
+        // Destroy the collectible game object after it's collected
+        Destroy(collect);
+
+
     }
 }
