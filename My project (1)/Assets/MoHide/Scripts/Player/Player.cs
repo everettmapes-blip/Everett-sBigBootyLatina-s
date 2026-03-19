@@ -87,8 +87,28 @@ public class Player : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+        
+    }
+    public void ApplyJumpBoost(float boostMultiplier, float duration)
+    {
+        // This public method allows other scripts to trigger the boost
+        StartCoroutine(JumpBoostRoutine(boostMultiplier, duration));
     }
 
+    private System.Collections.IEnumerator JumpBoostRoutine(float boostMultiplier, float duration)
+    {
+        // 1. Remember the original jump force
+        float originalJumpForce = jumpForce; 
+        
+        // 2. Apply the multiplier (e.g., 10 * 2 = 20)
+        jumpForce *= boostMultiplier; 
+        
+        // 3. Wait for the duration to run out
+        yield return new WaitForSeconds(duration); 
+        
+        // 4. Reset the jump force back to normal!
+        jumpForce = originalJumpForce; 
+    }
     #endregion
 
     #region Checks
