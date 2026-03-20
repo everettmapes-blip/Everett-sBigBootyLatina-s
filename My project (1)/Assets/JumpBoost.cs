@@ -17,8 +17,7 @@ public class JumpBoostCollectible : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the object hitting us is the Player
-        if (other.CompareTag("Player"))
-        {
+        
             // Try to grab the Player script from the colliding object
             Player playerScript = other.GetComponent<Player>();
 
@@ -39,6 +38,6 @@ public class JumpBoostCollectible : MonoBehaviour
                 // Destroy the collectible so it disappears from the scene
                 Destroy(gameObject);
             }
-        }
+        
     }
 }
