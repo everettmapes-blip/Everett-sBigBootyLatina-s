@@ -7,6 +7,8 @@ public class DeathPanel : MonoBehaviour
     public GameObject DeathPanelObject;
     public GameObject AimImage;
     public GameObject PressAnyKeyImage;
+    public GameObject YouWinObject;
+
 
     [Header("Character")]
     public Player player;
@@ -28,6 +30,27 @@ public class DeathPanel : MonoBehaviour
                 player.CheckIfDead();//"Player" component check if player is dead
 
             DeathPanelObject.SetActive(true);
+            AimImage.SetActive(false);
+
+            _cameraColorGrading.SetRendererShader(_deathRendererShader);
+
+            _seconds += Time.deltaTime;
+            if (_seconds > PressKeyDelay)
+            {
+                PressAnyKeyImage.SetActive(true);
+                if (Input.anyKeyDown)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                }
+            }
+        }
+        
+        if(time <= 0)
+        {
+            if (player.enabled)
+                player.CheckIfDead();//"Player" component check if player is dead
+
+            YouWinObject.SetActive(true);
             AimImage.SetActive(false);
 
             _cameraColorGrading.SetRendererShader(_deathRendererShader);
