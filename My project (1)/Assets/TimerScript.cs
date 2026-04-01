@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI; // Use UnityEngine.UI for Legacy Text
 using TMPro; // Use TMPro for TextMeshPro
+using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -8,7 +9,19 @@ public class CountdownTimer : MonoBehaviour
     // Use this if you have a TextMeshPro UI element
     [SerializeField] private GameObject Character;
     public TextMeshProUGUI countdownText; 
-    public GameObject winScreen; 
+    public GameObject winScreen;
+    
+    [Header("UI objects")]
+    public GameObject PressAnyKeyImage;
+
+
+    [Header("Post processing")]
+    [SerializeField] private ColorGrading _cameraColorGrading;
+    [SerializeField] private Shader _deathRendererShader;
+
+    [Header("Values")]
+    [SerializeField] private float PressKeyDelay = 1;//Time after which you can restart the game
+    private float _seconds;
     
     // Or use this if you have a Legacy Text UI element
     // public Text countdownText; 
@@ -35,6 +48,17 @@ public class CountdownTimer : MonoBehaviour
                 Debug.Log("Countdown Finished!");
                 Character.SetActive(false);
                 winScreen.SetActive(true);
+                _cameraColorGrading.SetRendererShader(_deathRendererShader);
+
+                _seconds += Time.deltaTime;
+                if (_seconds > PressKeyDelay)
+                {
+                    PressAnyKeyImage.SetActive(true);
+                    if (Input.anyKeyDown)
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    }
+                }
             }
         }
     }

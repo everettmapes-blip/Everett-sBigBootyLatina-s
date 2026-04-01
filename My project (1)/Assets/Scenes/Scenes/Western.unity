@@ -6429,6 +6429,10 @@ MonoBehaviour:
   Character: {fileID: 1034353025}
   countdownText: {fileID: 670427943}
   winScreen: {fileID: 764580773}
+  PressAnyKeyImage: {fileID: 2085988648}
+  _cameraColorGrading: {fileID: 1796970138}
+  _deathRendererShader: {fileID: 4800000, guid: f45352666b46a7547911726cf959b235, type: 3}
+  PressKeyDelay: 1
 --- !u!114 &1386757423
 MonoBehaviour:
   m_ObjectHideFlags: 0

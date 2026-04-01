@@ -9845,6 +9845,10 @@ MonoBehaviour:
   Character: {fileID: 1915407745}
   countdownText: {fileID: 493961941}
   winScreen: {fileID: 1884345223}
+  PressAnyKeyImage: {fileID: 510507229007475367}
+  _cameraColorGrading: {fileID: 1637073225}
+  _deathRendererShader: {fileID: 4800000, guid: f45352666b46a7547911726cf959b235, type: 3}
+  PressKeyDelay: 1
 --- !u!1001 &521281701
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33513,6 +33517,11 @@ PrefabInstance:
       addedObject: {fileID: 1884345224}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df572a1245b5f614c9fec5c46acbb114, type: 3}
+--- !u!1 &510507229007475367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3884023703584252152, guid: df572a1245b5f614c9fec5c46acbb114, type: 3}
+  m_PrefabInstance: {fileID: 510507229007475366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &543450652572074717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6649856671147336245, guid: 24b7e877324e1ab489a79fabcb9d3699, type: 3}
