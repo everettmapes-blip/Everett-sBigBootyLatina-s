@@ -21,7 +21,7 @@ public class CountdownTimer : MonoBehaviour
 
     [Header("Values")]
     [SerializeField] private float PressKeyDelay = 1;//Time after which you can restart the game
-    private float _seconds;
+    
     
     // Or use this if you have a Legacy Text UI element
     // public Text countdownText; 
@@ -45,20 +45,20 @@ public class CountdownTimer : MonoBehaviour
                 timerActive = false;
                 UpdateTimerDisplay();
                 // Add actions to perform when the timer finishes (e.g., game over, load scene)
-                Debug.Log("Countdown Finished!");
+                
                 Character.SetActive(false);
                 winScreen.SetActive(true);
                 _cameraColorGrading.SetRendererShader(_deathRendererShader);
-
-                _seconds += Time.deltaTime;
-                if (_seconds > PressKeyDelay)
-                {
-                    PressAnyKeyImage.SetActive(true);
-                    if (Input.anyKeyDown)
-                    {
-                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                    }
-                }
+                Debug.Log("running");
+                
+                
+                PressAnyKeyImage.SetActive(true);
+                    
+                
+                Debug.Log("click");
+                SceneManager.LoadScene("Menu");
+                
+                
             }
         }
     }
